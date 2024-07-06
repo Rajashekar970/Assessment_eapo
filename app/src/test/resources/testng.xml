@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Post">
+<parameter name="username" value="testqa@mailinator.com"/>
+<parameter name="password" value="123456789"/>
+<parameter name="PostCaption" value="This post is done by automation assignment"/>
+<parameter name="subamount" value="5.00"/>
+<parameter name="nonsubamount" value="7.00"/>
+  <test name="Add a New Post" verbose="2">
+   <classes>
+         <class name="assessment.Testcases"/>
+   </classes>      
+  </test> 
+</suite>

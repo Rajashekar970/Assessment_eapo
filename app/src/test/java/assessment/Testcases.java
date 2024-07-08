@@ -2,7 +2,7 @@ package assessment;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterMethod;
+//import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
@@ -44,11 +44,11 @@ public class Testcases {
     @Test(description = "Add a Post")
     public void testcase2(String username, String password, String PostCaption, String subamount, String nonsubamount)
             throws InterruptedException {
-        driver.get("https://client-auth-dev.fanfix.dev/login");
+        //driver.get("https://client-auth-dev.fanfix.dev/login");
         Thread.sleep(3000);
-        Login loginpage = new Login(driver);
-        loginpage.login(username, password);
-        Thread.sleep(3000);
+        //Login loginpage = new Login(driver);
+        //loginpage.login(username, password);
+        //Thread.sleep(3000);
         Dashboard dash = new Dashboard(driver);
         dash.PostbuttonDisplayed();
         dash.ClickAction();
@@ -58,7 +58,7 @@ public class Testcases {
         Addingpost.PostAction(subamount, nonsubamount);
     }
 
-    // @AfterSuite
+    @AfterSuite
     public void teardown() {
         driver.quit();
     }

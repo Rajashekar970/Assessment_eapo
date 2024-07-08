@@ -2,15 +2,15 @@ package assessment;
 
 import java.time.Duration;
 
-import org.openqa.selenium.By;
+//import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
+//import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+//import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class NewPost {
@@ -97,28 +97,20 @@ public class NewPost {
         int j = (int) num1;
         if (j < 5.0) {
             boolean status2 = !postbutton.isEnabled();
-            System.out.println("Post button is disabled for less amount " + status2);
+            System.out.println("Post button is disabled for less amount of 5 " + status2);
         }
     }
 
     public void PostAction(String subamount, String nonsubamount) throws InterruptedException {
-        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        //JavascriptExecutor jse = (JavascriptExecutor) driver;
         Thread.sleep(2000);
-        Subscriberprice_Custom.click();
-        jse.executeScript("arguments[0].value = '';", amount1);
-        Thread.sleep(5000);
-        System.out.println("Current value after clearing is Blank " + amount1.getAttribute("value").isBlank());
-
-        jse.executeScript("arguments[0].value='" + subamount + "';", amount1);
-        amount1.sendKeys(Keys.ENTER);
-        System.out.println("After passing value " + amount1.getAttribute("value"));
-        Thread.sleep(2000);
-        Nonsubsprice_Custom.click();
-        jse.executeScript("arguments[0].value = '';", amount2);
+        amount1.sendKeys(Keys.chord(Keys.CONTROL,"a"),subamount);
+        //jse.executeScript("arguments[0].value = '';", amount1);
         Thread.sleep(4000);
-        jse.executeScript("arguments[0].value='" + nonsubamount + "';", amount2);
-        Thread.sleep(3000);
-        amount2.sendKeys(Keys.ENTER);
+        System.out.println("After passing value in subscriber custom amount is " + amount1.getAttribute("value"));
+        amount2.sendKeys(Keys.chord(Keys.CONTROL,"a"),nonsubamount);
+        Thread.sleep(5000);
+        System.out.println("After Entering value in Nonsubscriber Custom amount is " + amount2.getAttribute("value"));
         postbutton.click();
         Thread.sleep(3000);
         if (successmessage.isDisplayed()) {
